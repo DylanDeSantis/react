@@ -1,0 +1,82 @@
+[
+    {
+      "id": 1,
+      "marca": "Yamaha",
+      "modelo": "Fz 150",
+      "price": 500000,
+      "description": "Yamaha FzFI Inyeccion 150 0KM",
+      "estado": "Nueva",
+      "stock": 5,
+      "category": "calle"
+    },
+    {
+    "id": 2,
+    "marca": "Yamaha",
+    "modelo": "Fz 250",
+    "price": 800000,
+    "description": "Yamaha Fz 250 0KM",
+    "estado": "Nueva",
+    "stock": 5,
+    "category": "calle"
+  },
+  {
+    "id": 3,
+    "marca": "Honda",
+    "modelo": "New Twister 250",
+    "price": 800000,
+    "description": "Honda New Twister 250 0KM",
+    "estado": "Nueva",
+    "stock": 5,
+    "category": "calle"
+  },
+  {
+    "id": 4,
+    "marca": "honda",
+    "modelo": "Wave 110",
+    "price": 300000,
+    "description": "Honda Wave 110 0KM",
+    "estado": "Nueva",
+    "stock": 5,
+    "category": "calle"
+  },
+  {
+    "id": 5,
+    "marca": "Kawasaki",
+    "modelo": "Ninja 400",
+    "price": 900000,
+    "description": "Kawasaki Ninja 400 usada",
+    "estado": "Usada",
+    "stock": 1,
+    "category": "pista"
+  },
+  {
+    "id": 6,
+    "marca": "Kawasaki",
+    "modelo": "Z400",
+    "price": 850000,
+    "description": "kawasaki z400 usada",
+    "estado": "Usada",
+    "stock": 1,
+    "category": "naked"
+  },
+  {
+    "id": 7,
+    "marca": "KTM",
+    "modelo": "390 Adventure",
+    "price": 1000000,
+    "description": "KTM 390 Adventure 0KM",
+    "estado": "Nueva",
+    "stock": 2,
+    "category": "Adventure"
+  },
+  {
+    "id": 8,
+    "marca": "KTM",
+    "modelo": "EXCF 350",
+    "price": 1000000,
+    "description": "KTM EXCF 350",
+    "estado": "Nueva",
+    "stock": 3,
+    "category": "Enduro"
+  }
+]
