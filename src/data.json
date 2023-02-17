@@ -1,6 +1,7 @@
 [
     {
       "id": 1,
+      "imagen": "/imagenes/fzFi150.png",
       "marca": "Yamaha",
       "modelo": "Fz 150",
       "price": 500000,
@@ -11,6 +12,7 @@
     },
     {
     "id": 2,
+    "imagen": "/imagenes/fz250.png",
     "marca": "Yamaha",
     "modelo": "Fz 250",
     "price": 800000,
@@ -21,6 +23,7 @@
   },
   {
     "id": 3,
+    "imagen": "/imagenes/Twister.png",
     "marca": "Honda",
     "modelo": "New Twister 250",
     "price": 800000,
@@ -31,7 +34,8 @@
   },
   {
     "id": 4,
-    "marca": "honda",
+    "imagen": "/imagenes/Wave110.png",
+    "marca": "Honda",
     "modelo": "Wave 110",
     "price": 300000,
     "description": "Honda Wave 110 0KM",
@@ -41,6 +45,7 @@
   },
   {
     "id": 5,
+    "imagen": "/imagenes/NINJA400.png",
     "marca": "Kawasaki",
     "modelo": "Ninja 400",
     "price": 900000,
@@ -51,16 +56,18 @@
   },
   {
     "id": 6,
+    "imagen": "/imagenes/Z400.png",
     "marca": "Kawasaki",
     "modelo": "Z400",
     "price": 850000,
-    "description": "kawasaki z400 usada",
+    "description": "Kawasaki z400 usada",
     "estado": "Usada",
     "stock": 1,
     "category": "naked"
   },
   {
     "id": 7,
+    "imagen": "/imagenes/KTM390.png",
     "marca": "KTM",
     "modelo": "390 Adventure",
     "price": 1000000,
@@ -71,12 +78,35 @@
   },
   {
     "id": 8,
+    "imagen": "/imagenes/EXCF350.png",
     "marca": "KTM",
     "modelo": "EXCF 350",
     "price": 1000000,
     "description": "KTM EXCF 350",
     "estado": "Nueva",
     "stock": 3,
+    "category": "Enduro"
+  },
+  {
+    "id": 9,
+    "imagen": "/imagenes/GSX750.png",
+    "marca": "Suzuki",
+    "modelo": "GSX 750",
+    "price": 1100000,
+    "description": "Suzuki GSX 750",
+    "estado": "Nueva",
+    "stock": 2,
+    "category": "Naked"
+  },
+  {
+    "id": 10,
+    "imagen": "/imagenes/RMZ450.png",
+    "marca": "Suzuki",
+    "modelo": "RMZ 450",
+    "price": 1200000,
+    "description": "Suzuki RMZ 450",
+    "estado": "Usada",
+    "stock": 1,
     "category": "Enduro"
   }
 ]

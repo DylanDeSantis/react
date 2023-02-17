@@ -4,11 +4,12 @@ import { Container } from "@chakra-ui/react";
 const ItemList = ({ rodados }) => {
   return (
     <>
-    <Container>
+    <Container >
       {rodados?.map((rodado) => (
         <Item
           key={rodado.id}
           id={rodado.id}
+          imagen={rodado.imagen}
           marca={rodado.marca}
           modelo={rodado.modelo}
           price={rodado.price}

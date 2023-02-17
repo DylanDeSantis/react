@@ -57,8 +57,8 @@ const NavBar = () => {
           <Link to={`/Marcas/${"Honda"}`}>
             <MenuItem>Honda</MenuItem>
           </Link>
-          <Link to={`/Marcas/${"BMW"}`}>
-            <MenuItem>BMW</MenuItem>
+          <Link to={`/Marcas/${"Suzuki"}`}>
+            <MenuItem>Suzuki</MenuItem>
           </Link>
           <Link to={`/Marcas/${"KTM"}`}>
             <MenuItem>KTM</MenuItem>
@@ -85,6 +85,9 @@ const NavBar = () => {
           </Link>
           <Link to={`/Category/${"Pista"}`}>
             <MenuItem>Pista</MenuItem>
+          </Link>
+          <Link to={`/Category/${"Enduro"}`}>
+            <MenuItem>Naked</MenuItem>
           </Link>
           <Link to={`/Category/${"Adventure"}`}>
             <MenuItem>Adventure</MenuItem>

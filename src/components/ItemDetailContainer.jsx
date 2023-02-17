@@ -26,10 +26,11 @@ const ItemDetailContainer = () => {
       console.log(err)
     }
   }
+
   fetchingData()
-  return 
-    <ItemDetail rodados={Data} />
-  
+    return(
+      <ItemDetail rodados={rodados[0]} /> 
+    )
 }
 
 export default ItemDetailContainer

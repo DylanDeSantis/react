@@ -10,7 +10,6 @@ import {
     CardFooter,
     Divider,
   } from "@chakra-ui/react"
-  import fotoFz150 from "../assets/fzFi150.png"
   import { useParams } from "react-router-dom"
   import ItemCounts from "./ItemCounts"
 
@@ -26,7 +25,7 @@ const ItemDetail = ({rodados}) => {
             <Center p="1rem">
                 <Card className="card-main">
                 <CardBody>
-                    <Image borderRadius="lg" src={fotoFz150} />
+                    <Image borderRadius="lg" src={imagen} />
                     <Stack mt="6" spacing="3">
                     <Heading size="md">{rodado.marca}</Heading>
                         <Text color="blue.800" fontSize="l">
