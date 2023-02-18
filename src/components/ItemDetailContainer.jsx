@@ -1,5 +1,5 @@
 import ItemDetail from "./ItemDetail"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Data from "../data.json"
 import { useParams } from "react-router"
 
@@ -27,7 +27,9 @@ const ItemDetailContainer = () => {
     }
   }
 
-  fetchingData()
+  useEffect(() => {
+    fetchingData()
+  }, [])
     return(
       <ItemDetail rodados={rodados[0]} /> 
     )

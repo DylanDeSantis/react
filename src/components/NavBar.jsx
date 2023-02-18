@@ -23,7 +23,7 @@ const NavBar = () => {
           <img src={imagen}/>
       <Box p="10" w="300px" h="100">
         <Heading size="md">
-          <Link to={"/"}>Home</Link>
+          <Link to={"/Motos"}>Home</Link>
         </Heading>
       </Box>
       <Menu>
@@ -86,7 +86,7 @@ const NavBar = () => {
           <Link to={`/Category/${"Pista"}`}>
             <MenuItem>Pista</MenuItem>
           </Link>
-          <Link to={`/Category/${"Enduro"}`}>
+          <Link to={`/Category/${"Naked"}`}>
             <MenuItem>Naked</MenuItem>
           </Link>
           <Link to={`/Category/${"Adventure"}`}>

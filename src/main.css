@@ -30,17 +30,8 @@
 }
 
 .card-main{
-    width: 18rem;
+    width: 0rem;
     margin: 1rem;
-}
-
-.welcome-container{
-    padding: 10rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .btn-send{

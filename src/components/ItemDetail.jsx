@@ -15,42 +15,37 @@ import {
 
 
 const ItemDetail = ({rodados}) => {
-    const {id} = useParams()
-    const filtroRodado = rodados.filter((rodado) => rodado.id == id)
-
     return (
         <>
-        {filtroRodado.map((rodado) => (
-            <div key={rodado.id}>
-            <Center p="1rem">
+         {rodados && <Center p="1rem">
                 <Card className="card-main">
                 <CardBody>
-                    <Image borderRadius="lg" src={imagen} />
+                    <Image borderRadius="lg" src={rodados.imagen} />
                     <Stack mt="6" spacing="3">
-                    <Heading size="md">{rodado.marca}</Heading>
+                    <Heading size="md">{rodados.marca}</Heading>
                         <Text color="blue.800" fontSize="l">
-                        Modelo: {rodado.modelo}
+                        Modelo: {rodados.modelo}
                         </Text>
                         <Text color="blue.800" fontSize="l">
-                            Precio: {rodado.price}
+                            Precio: {rodados.price}
                         </Text>
                         <Text color="blue.800" fontSize="l">
-                            Descripcion: {rodado.description}
+                            Descripcion: {rodados.description}
                         </Text>
                         <Text color="blue.800" fontSize="l">
-                            Estado: {rodado.estado}
+                            Estado: {rodados.estado}
                         </Text>
                         <Text color="blue.800" fontSize="l">
-                            Stock: {rodado.stock}
+                            Stock: {rodados.stock}
                         </Text>
                         <Text color="blue.800" fontSize="l">
-                            Categoria: {rodado.category}
+                            Categoria: {rodados.category}
                         </Text>
                     </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter className="card-footer">
-                    <ItemCount stock={rodado.stock} />
+                    <ItemCounts stock={rodados.stock} />
                     <Center className="btn-center">
                     <Button variant="solid" colorScheme="blue">
                         Buy
@@ -59,8 +54,7 @@ const ItemDetail = ({rodados}) => {
                 </CardFooter>
                 </Card>
             </Center>
-            </div>
-        ))}
+        }
         </>
     )
     }
