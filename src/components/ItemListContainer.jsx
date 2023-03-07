@@ -1,35 +1,22 @@
-import ItemList from "./ItemList"
-import Data from "../data.json"
-import { useParams } from "react-router-dom"
-import { Heading, Center, } from "@chakra-ui/react"
+import { useEffect, useState } from "react";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
+import db from "../firebase.js";
 
 const ItemListContainer = () => {
-  const { marca } = useParams()
-  const getDatos = () => {
-    return new Promise((resolve, reject) => {
-      if (Data.length === 0) {
-        reject(new Error("No hay datos para mostrar"))
-      }
-      setTimeout(() => {
-        resolve(Data);
-      }, 2000)
-    })
-  }
-  async function fetchingData() {
-    try {
-      const datosFetched = await getDatos();
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  fetchingData();
-  
-  const catFilter = Data.filter((rodado) => rodado.marca === marca)
-  return (
-    <div>
-      {marca ? <ItemList rodados={catFilter} /> : <ItemList rodados={Data} />}
-    </div>
-  )
-}
+  const [producto, setProducto] = useState([]);
+  const { categoriaId } = useParams();
 
-export default ItemListContainer
+  useEffect(() => {
+    const db = getFirestore();
+    const coleccion = collection(db, "rodados");
+    getDocs(coleccion).then((res) =>
+      setProducto(res.docs.map((rod) => ({ id: rod.id, ...rod.data() })))
+    );
+  }, [categoriaId]);
+
+  return <ItemList producto={producto} />;
+};
+
+export default ItemListContainer;

@@ -1,27 +1,32 @@
 import Item from "./Item";
 import { Container } from "@chakra-ui/react";
+import { useEffect } from "react";
 
-const ItemList = ({ rodados }) => {
+const ItemList = ({ producto }) => {
+  useEffect(() => {
+    console.log(producto);
+  }, [producto.length]);
+
   return (
     <>
-    <Container >
-      {rodados?.map((rodado) => (
-        <Item
-          key={rodado.id}
-          id={rodado.id}
-          imagen={rodado.imagen}
-          marca={rodado.marca}
-          modelo={rodado.modelo}
-          price={rodado.price}
-          description={rodado.description}
-          estado={rodado.estado}
-          stock={rodado.stock}
-          category={rodado.category}
-        />
-      ))}
-    </Container>
-  </>
-);
+      <Container>
+        {producto?.map((motos) => (
+          <Item
+            key={motos.id}
+            id={motos.id}
+            imagen={motos.imagen}
+            marca={motos.marca}
+            modelo={motos.modelo}
+            precio={motos.precio}
+            descripcion={motos.descripcion}
+            estado={motos.estado}
+            stock={motos.stock}
+            categoria={motos.categoria}
+          />
+        ))}
+      </Container>
+    </>
+  );
 };
 
-export default ItemList
+export default ItemList;

@@ -23,11 +23,11 @@ const NavBar = () => {
           <img src={imagen}/>
       <Box p="10" w="300px" h="100">
         <Heading size="md">
-          <Link to={"/Motos"}>Home</Link>
+          <Link to={"/"}>Home</Link>
         </Heading>
       </Box>
       <Menu>
-        <Link to={"/Motos"}>
+        <Link to={"/"}>
           <MenuButton
             as={Button}
             size="lg"
@@ -80,19 +80,19 @@ const NavBar = () => {
         Categorias
         </MenuButton>
         <MenuList className="menu-list-categorias">
-          <Link to={`/Category/${"Calle"}`}>
+          <Link to={`/Categorias/${"Calle"}`}>
             <MenuItem>Calle</MenuItem>
           </Link>
-          <Link to={`/Category/${"Pista"}`}>
+          <Link to={`/Categorias/${"Pista"}`}>
             <MenuItem>Pista</MenuItem>
           </Link>
-          <Link to={`/Category/${"Naked"}`}>
+          <Link to={`/Categorias/${"Naked"}`}>
             <MenuItem>Naked</MenuItem>
           </Link>
-          <Link to={`/Category/${"Adventure"}`}>
+          <Link to={`/Categorias/${"Adventure"}`}>
             <MenuItem>Adventure</MenuItem>
           </Link>
-          <Link to={`/Category/${"Enduro"}`}>
+          <Link to={`/Categorias/${"Enduro"}`}>
             <MenuItem>Enduro</MenuItem>
           </Link>
         </MenuList>
