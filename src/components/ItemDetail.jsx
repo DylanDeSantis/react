@@ -28,7 +28,7 @@ const ItemDetail = ({ producto }) => {
                   Modelo: {producto.modelo}
                 </Text>
                 <Text color="blue.800" fontSize="l">
-                  Precio: {producto.precio}
+                  Precio: U$S {producto.precio}
                 </Text>
                 <Text color="blue.800" fontSize="l">
                   Descripcion: {producto.decripcion}

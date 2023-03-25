@@ -14,7 +14,6 @@ const ItemDetailContainer = () => {
 
   const getProduct = async (db) => {
     const docRef = doc(db, "rodados", categoriaId);
-    console.log(docRef);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       console.log("document data: ", docSnap.data());

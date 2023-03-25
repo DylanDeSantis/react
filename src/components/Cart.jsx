@@ -5,6 +5,7 @@ import {
   FormHelperText,
   Button,
   Container,
+  Flex,
   Box,
   Textarea,
   Center,
@@ -16,57 +17,104 @@ import {
   Text,
   Image,
   Stack,
-
-  // FormControl,
-  // FormLabel,
-  // Input,
-  // FormHelperText,
-  // Button,
-  // Container,
-  // Box,
-  // Flex,
-  // Textarea,
-  // Spacer,
-  // ButtonGroup,
-  // Table,
-  // Thead,
-  // Tbody,
-  // Tr,
-  // Th,
-  // Td,
-  // TableContainer,
+  Link,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/ShoppingCartContext";
+import db from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
+import MostrarCompra from "./MostrarCompra";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
+  const [showForm, setShowForm] = useState(false);
+
+  const getProduct = async (db) => {
+    const docRef = doc(db, "rodados", categoriaId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log("document data: ", docSnap.data());
+      let producto = docSnap.data();
+      producto.id = docSnap.id;
+      setProducto(producto);
+    }
+  };
+
+  let total = 0;
+  cart.forEach((item) => {
+    total += item.precio * item.quantity;
+  });
+
+  const removeFromCart = (productId) => {
+    setCart(cart.filter((item) => item.id !== productId));
+  };
+
+  const [order, setOrder] = useState({
+    nombre: "",
+    documento: "",
+    email: "",
+    telefono: "",
+  });
+
+  const abrirCompra = (e) => {
+    e.preventDefault();
+
+    setOrder({
+      nombre: "",
+      documento: "",
+      email: "",
+      telefono: "",
+    });
+    setShowForm(true);
+  };
+
+  const enviarCompra = async (e) => {
+    e.preventDefault();
+
+    let random = Math.trunc(Math.random() * 1000);
+
+    const orderData = {
+      orden: "000" + random,
+      nombre: order.nombre,
+      documento: order.documento,
+      email: order.email,
+      telefono: order.telefono,
+      total: total,
+      items: cart.map((item) => ({
+        id: item.id,
+        marca: item.marca,
+        modelo: item.modelo,
+        precio: item.precio,
+        cantidad: item.quantity,
+      })),
+    };
+
+    try {
+      const docRef = await addDoc(collection(db, "ordenes"), orderData);
+      setCart([]);
+      setShowForm(false);
+      window.alert("¡Su pedido ha sido enviado!");
+      window.location.href = "/MostrarCompra";
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <>
-      <Center bg="#D6EAF8" h="100px" color="black">
-        <Heading as="h2" size="2xl">
-          Tu Carrito
-        </Heading>
-      </Center>
       {cart.map((item) => {
         return (
           <Container key={item.id} className="main-catalogue">
             <Card maxW="sm">
-              <CardHeader>
-                <Heading size="md">{item.marca}</Heading>
-                <Heading size="md">{item.modelo}</Heading>
-              </CardHeader>
               <CardBody>
+                <Image borderRadius="lg" src={item.imagen} />
                 <Stack mt="6" spacing="3">
+                  <Heading size="md">{item.marca}</Heading>
                   <Text color="blue.800" fontSize="l">
                     Modelo: {item.modelo}
                   </Text>
                   <Text color="blue.800" fontSize="l">
-                    Precio: {item.precio}
-                  </Text>
-                  <Text color="blue.800" fontSize="l">
-                    Descripcion: {item.decripcion}
+                    Precio: U$S {item.precio}
                   </Text>
                   <Text color="blue.800" fontSize="l">
                     Estado: {item.estado}
@@ -80,9 +128,13 @@ const Cart = () => {
                 </Stack>
               </CardBody>
               <CardFooter>
+                <Button size="sm" colorScheme="blue" onClick={abrirCompra}>
+                  Completa tu compra
+                </Button>
                 <Button
                   colorScheme="red"
-                  onClick={() => console.log("Eliminando")}
+                  size="sm"
+                  onClick={() => removeFromCart(item.id)}
                 >
                   Delete from cart
                 </Button>
@@ -91,58 +143,64 @@ const Cart = () => {
           </Container>
         );
       })}
+      {showForm && (
+        <Container>
+          <Card maxW="sm">
+            <CardBody>
+              <Stack mt="6" spacing="3">
+                <div>Total: U$S {total}</div>
+                <Text color="blue.800" fontSize="l">
+                  Nombre completo
+                </Text>
+                <Input
+                  type="text"
+                  value={order.nombre}
+                  onChange={(e) =>
+                    setOrder({ ...order, nombre: e.target.value })
+                  }
+                />
+                <Text color="blue.800" fontSize="l">
+                  E-mail
+                </Text>
+                <Input
+                  type="text"
+                  value={order.email}
+                  onChange={(e) =>
+                    setOrder({ ...order, email: e.target.value })
+                  }
+                />
+                <Text color="blue.800" fontSize="l">
+                  Documento
+                </Text>
+                <Input
+                  type="text"
+                  value={order.documento}
+                  onChange={(e) =>
+                    setOrder({ ...order, documento: e.target.value })
+                  }
+                />
+                <Text color="blue.800" fontSize="l">
+                  Numero de contacto
+                </Text>
+                <Input
+                  type="text"
+                  value={order.telefono}
+                  onChange={(e) =>
+                    setOrder({ ...order, telefono: e.target.value })
+                  }
+                />
+              </Stack>
+            </CardBody>
+            <CardFooter>
+              <Button colorScheme="blue" size="sm" onClick={enviarCompra}>
+                <Link to={"/MostrarCompra"}>Finalizar compra</Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        </Container>
+      )}
     </>
   );
 };
-{
-  /* <Flex justify="center">
-  <TableContainer>
-    <Table variant="simple">
-      <Thead>
-        <Tr>
-          <Th>marca</Th>
-          <Th>modelo</Th>
-          <Th>precio</Th>
-          <Th>estado</Th>
-          <Th>categoria</Th>
-          <Th>Precio total</Th>
-        </Tr>
-      </Thead>
-    </Table>
-  </TableContainer>
-</Flex>
-<br />
-<br />
-<Flex w="100%" spacing={4} direction="row" align="center">
-  <Spacer />
-  <ButtonGroup spacing="2"></ButtonGroup>
-  <Spacer />
-</Flex> */
-}
-
-{
-  /* //   return (
-
-//     <Container className="cart-container">
-//       <FormControl>
-//         <Box>
-//           <FormLabel>Your name</FormLabel>
-//           <Input type="text" />
-//           <FormLabel>Email address</FormLabel>
-//           <Input type="email" />
-//           <FormHelperText>We'll never share your email.</FormHelperText>
-//         </Box>
-//         <FormLabel>What do you want to tell us?</FormLabel>
-//         <Textarea></Textarea>
-//         <Box className="btn-send">
-//           <Button colorScheme="teal" variant="outline">
-//             Send information
-//           </Button>
-//         </Box>
-//       </FormControl>
-//     </Container>
-//   );
-// }; */
-}
 
 export default Cart;

@@ -13,6 +13,7 @@ import { CartContext } from "../context/ShoppingCartContext";
 const ItemCounts = ({
   stock,
   id,
+  imagen,
   precio,
   marca,
   modelo,
@@ -46,6 +47,7 @@ const ItemCounts = ({
           {
             id,
             quantity: count,
+            imagen,
             precio,
             marca,
             modelo,

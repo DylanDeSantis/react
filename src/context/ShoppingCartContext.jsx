@@ -7,6 +7,8 @@ export const ShoppingCartProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [idOrden, setIdOrden] = useState("");
+  const [orderNumber, setOrderNumber] = useState("");
+
   return (
     <CartContext.Provider
       value={{
@@ -18,6 +20,8 @@ export const ShoppingCartProvider = ({ children }) => {
         setCartItems,
         idOrden,
         setIdOrden,
+        orderNumber,
+        setOrderNumber,
       }}
     >
       {children}

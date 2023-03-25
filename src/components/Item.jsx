@@ -26,8 +26,8 @@ const Item = ({
   return (
     <div>
       <Center p="1rem">
-        <Card className="card-main">
-          <CardBody>
+        <Card className="box-cart">
+          <CardBody className="box-cart">
             <img src={imagen} />
             <Stack mt="6" spacing="3">
               <Heading size="md">{modelo}</Heading>
@@ -38,7 +38,7 @@ const Item = ({
                 Modelo: {modelo}
               </Text>
               <Text color="blue.800" fontSize="l">
-                Precio: ${precio}
+                Precio: U$S{precio}
               </Text>
               <Text color="blue.800" fontSize="l">
                 Descripcion: {descripcion}

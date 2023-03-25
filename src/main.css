@@ -1,52 +1,61 @@
-.cart{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 50%;
+.cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
 }
 
-.menu-list{
-    font-size: larger;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.menu-list {
+  font-size: larger;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.main-catalogue{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
+.main-catalogue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.card-footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.btn-center{
-    padding: 1rem;
+.btn-center {
+  padding: 1rem;
 }
 
-.card-main{
-    width: 0rem;
-    margin: 1rem;
+.card-main {
+  width: calc(90% - 2rem);
+  width: 0rem;
+  margin: 1rem;
 }
 
-.btn-send{
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    margin: 1rem;
+.box-cart {
+  width: calc(50% - 2rem);
 }
 
-.cart-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin: 10rem;
+.btn-send {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin: 1rem;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 10rem;
+}
+.finalizarCompra {
+  width: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
